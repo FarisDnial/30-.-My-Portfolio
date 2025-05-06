@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@sentry/nextjs": "^9.15.0",
     "clsx": "^2.1.1",
     "mini-svg-data-uri": "^1.4.4",
     "motion": "^12.9.2",
