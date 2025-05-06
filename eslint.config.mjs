@@ -10,7 +10,24 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.extends(
+    "next/core-web-vitals",      // Essential Next.js rules + performance
+    "next",                      // Next.js recommended base config
+    "plugin:react-hooks/recommended", // Lint React hooks usage
+    "plugin:@typescript-eslint/recommended", // TS-specific best practices
+    "plugin:jsx-a11y/recommended" // Accessibility best practices
+  ),
+  {
+    rules: {
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/ban-ts-comment": "warn",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "react-hooks/exhaustive-deps": "warn",
+      "prefer-const": "warn",
+      "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+      "no-console": ["warn", { allow: ["warn", "error"] }],
+    },
+  },
 ];
 
 export default eslintConfig;
